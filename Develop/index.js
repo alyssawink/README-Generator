@@ -59,9 +59,21 @@ const questions = [
     },
 ];
 
+// Function to prompt questions and store user inputs
+const promptUser = () => {
+    return inquirer.prompt(questions);
+}
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFileSync();
+const writeToFile = (fileName, data) => {
+    const markdown = generateMarkdown(data);
+    fs.writeFile(fileName, markdown, (err) => {
+        if (err) {
+            console.error("Error writing file:", err);
+        } else {
+            console.log("README file generated successfully!");
+        }
+    });
 }
 
 // TODO: Create a function to initialize app
