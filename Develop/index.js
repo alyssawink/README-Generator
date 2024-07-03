@@ -76,13 +76,15 @@ const writeToFile = (fileName, data) => {
     });
 }
 
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions).then((userAnswers) => {
-        console.log(userAnswers)
-        //writeToFile('README.md', generateMarkdown({...usersAnswers }));
-        fs.writeFileSync("test2.md", generateMarkdown(userAnswers) )
-    })
+// Function to initialize app
+const init = () => {
+    promptUser()
+        .then(data => {
+            writeToFile("generated-README.md", data);
+        })
+        .catch(error => {
+            console.error("An error occurred:", error);
+        });
 }
 
 // Function call to initialize app
