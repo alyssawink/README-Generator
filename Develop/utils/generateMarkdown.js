@@ -13,31 +13,44 @@ function generateLicenseBadge(license) {
   return licenseBadgeLinks[license] || "";
 }
 
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-${renderLicenseBadge(data.license)}
+  return `
+
+# ${data.title} by ${data.name}
+
+${generateLicenseBadge(data.license)}
+
 ## Table of Contents
-1. [Description](#description)
-2. [License](#license)
-3. [Third Example](#third-example)
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Questions](#questions)
 
 ## Description
+
 ${data.description}
 
+## Installation
+
+${data.installation}
+
+## Usage
+
+${data.usage}
+
+## Author
+
+${data.author}
+
+## Test Instructions
+
+${data.test}
+
 ## License
-This is licensed under ${data.license}
 
-
+This project is licensed under the ${data.license} license. See the [LICENSE](LICENSE) file for details.
 `;
 }
 
